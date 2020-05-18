@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://wgf4242.github.io/</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-21-Reverse.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-22-Misc.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-23-Web.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-24-Crypto.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-25-%E5%8A%A0%E5%9B%BA.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-26-PWN.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/2019-03-27-AWD0326.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/100.Software.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/writeup/xctf_game.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wgf4242.github.io/ctf/writeup/xctf_NJUPT%20CTF%202017_maze.html</loc>
+  <lastmod>2020-05-11T15:55:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
