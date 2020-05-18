@@ -1,5 +1,8 @@
 [TOC]
 
+* TOC
+{:toc}
+
 # 2020_网鼎杯朱雀组writeup
 
 ## reverse 0x1 go
