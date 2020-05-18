@@ -5,6 +5,7 @@ rabbit 加密解密
 
 https://www.baidu.com/s?ie=UTF-8&wd=%E9%80%86%E5%90%91%20angr
 
+ida符号插件
 
 upper of 32 bit RFlags are reversed?
 

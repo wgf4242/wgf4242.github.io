@@ -17,3 +17,7 @@
 [100.Software.md](./ctf/100.Software.md)
 
 ## WriteUp
+
+[2020_网鼎杯朱雀组writeup](./ctf/writeup/2020_网鼎杯朱雀组writeup.md)
+
+
