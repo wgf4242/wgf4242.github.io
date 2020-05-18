@@ -18,8 +18,10 @@
 
 ## WriteUp
 
-[2020_网鼎杯朱雀组](./ctf/writeup/2020_网鼎杯朱雀组writeup.md)
-
 [2020_网鼎杯朱雀组](./ctf/writeup/2020_zhuque_writeup.md)
 
-[2020_网鼎杯朱雀组](./ctf/writeup/2020_网鼎杯朱雀组_writeup.md)
+[2020_网鼎杯朱雀组](./ctf/writeup/2020_网鼎杯朱雀.md)
+
+[2020_网鼎杯朱雀组](./ctf/writeup/2020-网鼎杯朱雀.md)
+
+
