@@ -14,7 +14,7 @@ Repositories :
 ### Init 2
 sudo apt-get update
 sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot
-pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget
+pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan
 
 git clone https://github.com/longld/peda.git ~/peda
 echo "source ~/peda/peda.py" >> ~/.gdbinit
