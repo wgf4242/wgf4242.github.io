@@ -464,11 +464,14 @@ s  //si：单步步入
 
 i r // info register
 
+x/5s $eax  // 看5个 s字符串
 x/5sw $eax // 看5个 s字符串 w--dword 双字
 
 x/200w $eax // 看eax的 200个4字节
 
-x/3uh 0x54320 //内存地址0x54320读取内容
+x/3uh 0x54320 //内存地址0x54320读取内容 3u 3w个字节
+
+x/3us 0x601080 //读取地址字符串
 
 ### peda
 
