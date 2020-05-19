@@ -467,6 +467,9 @@ i r // info register
 x/5sw $eax // 看5个 s字符串 w--dword 双字
 
 x/200w $eax // 看eax的 200个4字节
+
+x/3uh 0x54320 //内存地址0x54320读取内容
+
 ### peda
 
 info file  // 查看当前文件的信息，例如程序入口点

