@@ -211,3 +211,17 @@ flag = 'flag{{{}}}'.format(''.join([s0,s1,v5,v4]))
 print(flag)
 # flag{UJWP1jMp}
 ```
+
+## Misc
+
+### 面具下的flag
+
+`foremost mianju.jpg` 分享出zip文件。
+
+zip伪加密。ZipCenOp解压一下。
+
+解压出vmdk文件。
+
+重点：一定要在linux下, 否则缺少文件。 7z x filename
+
+解压出来。 key1 brainfuck, key2 ook 解码即可。

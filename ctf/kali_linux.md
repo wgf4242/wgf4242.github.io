@@ -13,7 +13,8 @@ Repositories :
     deb http://http.kali.org/kali kali-rolling main non-free contrib
 ### Init 2
 sudo apt-get update
-sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot
+sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide
+sudo apt-get steghide
 pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan
 
 git clone https://github.com/longld/peda.git ~/peda
@@ -123,6 +124,8 @@ find
 grep
  
     grep  "flag" -r -a * 
+
+strings xiaojiejie.jpeg | grep -E "\{[a-z]{4,}"
 
 strings -a -t x libc_32.so.6 | grep "/bin/sh"
 
