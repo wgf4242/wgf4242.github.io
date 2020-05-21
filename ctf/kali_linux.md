@@ -13,34 +13,44 @@ Repositories :
     deb http://http.kali.org/kali kali-rolling main non-free contrib
 ### Init 2
 sudo apt-get update
-sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide
-sudo apt-get steghide
-pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan
+sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess
+sudo gem install one_gadget
 
+echo "------Install gdb-peda -------"
 git clone https://github.com/longld/peda.git ~/peda
 echo "source ~/peda/peda.py" >> ~/.gdbinit
 echo "DONE! debug your program with gdb and enjoy"
 
-
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 
-cd Downloads
+echo "------Install pip file -------"
+mkdir ~/.pip && cat <<EOT >> ~/.pip/pip.conf
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host=mirrors.aliyun.com
+EOT
+pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan
+
+
+echo "------In Downloads -------"
+cd ~/Downloads
 echo "get pwndbg"
 git clone https://github.com/pwndbg/pwndbg
 
 echo "----------checksec file alias as cf"
 echo "alias cf='func() { checksec --file=\$1;}; func'" >> ~/.bashrc
 
-wget  https://github.com/slimm609/checksec.sh/archive/1.6.tar.gz
-
+echo "----------RsaCtfTool"
 git clone https://github.com/Ganapati/RsaCtfTool.git
+
+#### 考虑安装 sage
+echo "----------sage"
 wget https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/sage-9.0-Ubuntu_18.04-x86_64.tar.bz2
 tar -xvjf sage-9.0-Ubuntu_18.04-x86_64.tar.bz2
 sudo ln -s `pwd`/SageMath/sage /usr/local/bin/sage
 ./sage
 
-
-sudo gem install one_gadget
 #### 考虑安装 pwndbg
 
     cd ~/Downloads/pwndbg
@@ -206,17 +216,17 @@ openssl base64 -d -in t.base64
 
 __二. 利用openssl命令进行md5/sha1摘要（digest）__
 
-1. 对字符串‘abc’进行md5摘要计算：`echo abc | openssl md5`
+1. 对字符串'abc'进行md5摘要计算：`echo abc | openssl md5`
 
 2. 若对某文件进行md5摘要计算：`openssl md5 -in t.txt`
 
-3. 对字符串‘abc’进行sha1摘要计算：`echo abc | openssl sha1`
+3. 对字符串'abc'进行sha1摘要计算：`echo abc | openssl sha1`
 
 4. 若对某文件进行sha1摘要计算：`openssl sha1 -in t.txt`
 
 __三. 利用openssl命令进行AES/DES3加密解密（AES/DES3 encrypt/decrypt）__
 
-对字符串‘abc’进行aes加密，使用密钥123，输出结果以base64编码格式给出：
+对字符串'abc'进行aes加密，使用密钥123，输出结果以base64编码格式给出：
 
 		# echo abc | openssl aes-128-cbc -k 123 -base64
 		U2FsdGVkX18ynIbzARm15nG/JA2dhN4mtiotwD7jt4g=   （结果）
@@ -624,7 +634,7 @@ p &((struct link_map*)0)->l_info：查看l_info成员偏移
     •
 
     x/32gx 0x602010-0x10 命令查看堆块情况
-## Vmware
+## Vmware 共享文件夹
 
 [Link](https://blog.csdn.net/qq_33438733/article/details/79671403)
 
@@ -632,7 +642,13 @@ p &((struct link_map*)0)->l_info：查看l_info成员偏移
 
 挂载共享目录：
 
-    [root@bogon ~]# /usr/bin/vmhgfs-fuse .host:/linux_share /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+    sudo mkdir /mnt/hgfs
+    sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+
+挂载vmware到~/vmware
+
+    mkdir ~/vmware
+    sudo vmhgfs-fuse .host:/vmware /home/kali/vmware -o subtype=vmhgfs-fuse,allow_other
 
 查看挂载情况：
 
@@ -648,8 +664,34 @@ sudo vi /etc/init.d/mount
 
 将`mount --bind /mnt/hgfs/vmware /home/kali/vmware`加入到`/etc/rc.local`文件中, centos7.2中开启启动需chmod +x /etc/rc.local赋给权限
 
-### 添加开机项
-  
+### 添加开机项-方法1
+
+    sudo vi /etc/fstab
+    # 添加
+    .host:/vmware /home/kali/vmware fuse.vmhgfs-fuse   allow_other   0   0
+
+### 添加开机项-方法2
+
+    sudo crontab -e
+    # 加入
+    @reboot /home/kali/x.sh
+
+
+### 添加开机项3
+注意使用这个方法时，代码如果是复制粘贴的，需要用vim打开. \r\n的dos格式会引起错误
+    
+    方法1 vi xx.sh
+    :set ff=unix回车
+    wq回车
+
+    方法2
+    cat dbback.sh | tr "\r\n" "\n"
+
+    方法3：
+    sed -i 's/\r$//' file.sh
+    将file.sh中的\r都替换为空白，问题解决
+
+
     sudo update-rc.d mount defaults 99
 
 移除开机启动项
@@ -666,6 +708,50 @@ Use the `service --status-all` 也可以检查
 
 手动启动 systemctl start mount
 自动启动 systemctl enable mount
+
+### 添加开机项4
+
+Had the same problem, found a solution in this post elsewhere.
+
+Summary:
+
+    sudo vim /etc/systemd/system/rc-local.service
+
+Then add the following content to it.
+
+    [Unit]
+     Description=/etc/rc.local Compatibility
+     ConditionPathExists=/etc/rc.local
+
+    [Service]
+     Type=forking
+     ExecStart=/etc/rc.local start
+     TimeoutSec=0
+     StandardOutput=tty
+     RemainAfterExit=yes
+     SysVStartPriority=99
+
+    [Install]
+     WantedBy=multi-user.target
+    Note: Starting with 16.10, Ubuntu doesn't ship with /etc/rc.local file anymore. Same thing for other distributions like Kali. You can create the file by executing this command.
+
+    
+`printf '%s\n' '#!/bin/bash' 'exit 0' | sudo tee -a /etc/rc.local`
+
+Then add execute permission to /etc/rc.local file.
+
+    sudo chmod +x /etc/rc.local
+
+After that, enable the service on system boot:
+
+    sudo systemctl enable rc-local
+Finally, start the service and check its status:
+
+    sudo systemctl start rc-local.service
+    sudo systemctl status rc-local.service
+
+The complete post in https://www.linuxbabe.com/linux-server/how-to-enable-etcrc-local-with-systemd
+
 ## Shell 脚本语法 
 
     vmware-hgfsclient | while read folder; do

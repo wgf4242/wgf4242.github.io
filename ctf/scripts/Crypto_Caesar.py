@@ -35,6 +35,10 @@ def offset(ch, i, force=False):
 	return chr((ord(ch) + i) % 128) 
 
 def decrypt(txt=str_lst, force=False):
+	print('---------检测前4位')
+	lower = str_lst.lower()
+	print([ord(x) - ord(lower[i]) for i,x in enumerate('flag')])
+	print('---------检测前4位 done---')
 	for i in range(128):
 		g = [offset(x, i, force) for x in txt]
 		print(''.join(g))
@@ -46,6 +50,6 @@ if __name__ == '__main__':
 		decrypt(sys.argv[1])
 		decrypt(sys.argv[1],True)
 	else: 
-		decrypt()
+		decrypt('FRPHEVGL')
 		print('xxxxxxxxxxxxxxxxx----------xxxxxxxxxs')
 		decrypt(force=True)

