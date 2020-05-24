@@ -1,5 +1,8 @@
 # TODO
-rabbit 加密解密
+IDA windows调试 修改EIP
+
+用sage的ipython
+
 
 曼彻斯特及差分曼彻斯特编码
 
@@ -25,3 +28,7 @@ upper of 32 bit RFlags are reversed?
     自定义函数的声明
     调用自定义函数，调用系统函数
     符号  >> 和 <<
+
+
+针对RSA的攻击之 Coppersmith定理攻击
+https://www.52pojie.cn/thread-653446-1-1.html

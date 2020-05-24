@@ -13,8 +13,11 @@ Repositories :
     deb http://http.kali.org/kali kali-rolling main non-free contrib
 ### Init 2
 sudo apt-get update
-sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess
-sudo gem install one_gadget
+sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility
+sudo gem install one_gadget 
+
+echo "------Add path to bash"
+echo export PATH=$PATH:/home/$USER/.local/bin >> ~/.bashrc
 
 echo "------Install gdb-peda -------"
 git clone https://github.com/longld/peda.git ~/peda
@@ -30,7 +33,9 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 [install]
 trusted-host=mirrors.aliyun.com
 EOT
-pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan
+echo "------pip install file -------"
+pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan xortools
+pip install utf9
 
 
 echo "------In Downloads -------"
@@ -43,7 +48,7 @@ echo "alias cf='func() { checksec --file=\$1;}; func'" >> ~/.bashrc
 
 echo "----------RsaCtfTool"
 git clone https://github.com/Ganapati/RsaCtfTool.git
-
+cd ..
 #### 考虑安装 sage
 echo "----------sage"
 wget https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/sage-9.0-Ubuntu_18.04-x86_64.tar.bz2

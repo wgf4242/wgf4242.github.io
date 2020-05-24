@@ -218,3 +218,7 @@ key 是 245568。
 
 
 [参考](https://blog.csdn.net/qq_40568770/article/details/106185293)
+
+[2020网鼎杯朱雀组部分Web题wp](## https://mp.weixin.qq.com/s/LNtPjFzGoAJJoD1eMUXyJw)
+
+[2020网鼎杯-朱雀组-部分wp](https://mp.weixin.qq.com/s/ywprWgbW-8DvoSgxzpwcGw)
