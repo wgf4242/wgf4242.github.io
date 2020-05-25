@@ -164,3 +164,5 @@ d.[新手分析，因为GKCTF的仿射密码和这个有点关系，所以做了
 
 b.[https://badmonkey.site/archives/2020-5-dasctf.html](https://badmonkey.site/archives/2020-5-dasctf.html)
 
+# 其他 wp
+[DASCTF五月三道逆向题](https://bbs.pediy.com/thread-259707.htm) BScript ViQinere MiscVm
