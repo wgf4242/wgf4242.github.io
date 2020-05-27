@@ -37,6 +37,8 @@ echo "------pip install file -------"
 pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan xortools
 pip install utf9
 
+echo "------Config vim -------"
+echo "set mouse=c">~/.vimrc
 
 echo "------In Downloads -------"
 cd ~/Downloads
@@ -194,6 +196,13 @@ nmap
     -iL nmaptest.txt  # 扫描文件中列出的所有IP地址
     -oN vege.txt # 保存扫描结果到 vege.txt
 
+### vim
+永久配置 
+
+    vim ~/.vimrc
+    set mouse=c
+
+不能复制
 #### Shell 等加密常用
 
 
@@ -665,24 +674,11 @@ p &((struct link_map*)0)->l_info：查看l_info成员偏移
 sudo vi /etc/init.d/mount
 
     #! /bin/sh
-    mount --bind /mnt/hgfs/vmware /home/kali/vmware
+    sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+    sudo mount --bind /mnt/hgfs/vmware /home/kali/vmware
 
 将`mount --bind /mnt/hgfs/vmware /home/kali/vmware`加入到`/etc/rc.local`文件中, centos7.2中开启启动需chmod +x /etc/rc.local赋给权限
 
-### 添加开机项-方法1
-
-    sudo vi /etc/fstab
-    # 添加
-    .host:/vmware /home/kali/vmware fuse.vmhgfs-fuse   allow_other   0   0
-
-### 添加开机项-方法2
-
-    sudo crontab -e
-    # 加入
-    @reboot /home/kali/x.sh
-
-
-### 添加开机项3
 注意使用这个方法时，代码如果是复制粘贴的，需要用vim打开. \r\n的dos格式会引起错误
     
     方法1 vi xx.sh
@@ -699,7 +695,23 @@ sudo vi /etc/init.d/mount
 
     sudo update-rc.d mount defaults 99
 
-移除开机启动项
+### 添加开机项-方法1
+
+    sudo vi /etc/fstab
+    # 添加
+    .host:/vmware /home/kali/vmware fuse.vmhgfs-fuse   allow_other   0   0
+
+### 添加开机项-方法2
+
+    sudo crontab -e
+    # 加入
+    @reboot /home/kali/x.sh
+
+    # x.sh
+    sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+    sudo mount --bind /mnt/hgfs/vmware /home/kali/vmware
+
+### 移除开机启动项
 
     sudo update-rc.d -f mount remove
 
@@ -768,6 +780,16 @@ The complete post in https://www.linuxbabe.com/linux-server/how-to-enable-etcrc-
 echo `pwd`
 
 ## FAQ
+
+### 中文乱码
+```
+sudo apt install xfonts-intl-chinese ttf-wqy-microhei -y
+sudo dpkg-reconfigure locales
+```
+1. 空格选中zh_CN.UTF8, 回车。
+
+2. 默认设置为en_us.UTF8
+
 ### 怎样离线安装软件包？
 
 下载包文件
