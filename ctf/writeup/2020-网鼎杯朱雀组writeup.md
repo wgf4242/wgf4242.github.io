@@ -68,10 +68,17 @@ https://blog.csdn.net/yusakul/article/details/106186607
 
 https://blog.csdn.net/qq_40568770/article/details/106185293?fps=1&locationNum=2
 
+https://blog.csdn.net/Breeze_CAT/article/details/106194836
+
+https://blog.csdn.net/szxpck/article/details/106197474
+
+https://www.anquanke.com/post/id/205578#h3-7
+
+https://mp.weixin.qq.com/s/ywprWgbW-8DvoSgxzpwcGw
+
 打开程序找到main函数
 
-![what1](./2020_网鼎杯朱雀组writeup.md1.png)
-
+![](./2020_网鼎杯朱雀组writeup.md1.png)
 
 进入到chkflag函数，发现其是将输入的flag中的xxx每一个x都换成2进制的形式，每一个4位，然后存在glockflag中
 
@@ -81,9 +88,19 @@ parse函数是将glockflag中的二进制拿出来，0代表左，1代表右，�
 
 ![](./2020_网鼎杯朱雀组writeup.md3.png)
 
-我们先将 每个节点及其路径打印出来
+用ida动态运行调试一下，发现root是加载了0X0406530。
+
+![](./2020_网鼎杯朱雀组writeup.md8.png)
+
+root，经调试，在内存中如图所示，全都是左右子树的地址。
+
+![](./2020_网鼎杯朱雀组writeup.md9.png)
+
+每个节点及其路径打印出来 IDA中启动调试后，Shift+F2，选python
 
 ```python
+a=[]
+lujing=[]
 def traverse_leaf(pnode):
     if pnode != 0:
         if Dword(pnode + 12) == 0 and Dword(pnode + 16) == 0:
@@ -120,6 +137,35 @@ for i in range(0, len(flag01), 4):
     tmp = "%x" % int(flag01[i:i+4], 2)
     flagx += tmp
 print(flagx)
+```
+
+暴破法
+```python
+root=0x00406530#根结点地址
+secret='zvzjyvosgnzkbjjjypjbjdvmsjjyvsjx'
+
+def encrypt(way):
+    a=root
+    result=''
+    bin_s='{:010b}'.format(way) #这里设成10位二进制高位补0，起初设成8位导致a和r没有出结果
+    for each in bin_s:     #模拟parse函数
+        if(each=='1'):
+            a=idc.Dword(a+12)
+            result+='0'
+        elif(each=='0'):
+            a=idc.Dword(a+16)
+            result+='1'
+        if(idc.Dword(a)>96 and idc.Dword(a) <=122):
+            return result+':'+chr(idc.Dword(a))
+    return 0
+
+L=[]
+for each in range(1024):    #开爆，奥里给爆就完了
+    if(encrypt(each)!=0):
+        L.append(encrypt(each))
+        
+Table=list(set(L))
+print(Table)
 ```
 
 最终打印出flagx是afa41fc8574f12481a849d7f7120f89c
