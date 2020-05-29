@@ -365,3 +365,5 @@ for i in range(2,20):
 [2020网鼎杯-朱雀组-Crypto、Misc(带视频) ](https://mp.weixin.qq.com/s/XYkgD_5Y0FcgsNqRAb_1Yw)
 
 [2020网鼎杯-朱雀组-Web(带视频)](https://mp.weixin.qq.com/s/rSdoGiCY4tsh5LvVHgZ0Ow)
+
+[2020网鼎杯-朱雀组-Misc、Pwn(带视频)](https://mp.weixin.qq.com/s/I13vmPqrm4wVz5TPI8gwIg)
