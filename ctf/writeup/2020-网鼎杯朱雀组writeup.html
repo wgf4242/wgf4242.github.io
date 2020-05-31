@@ -1311,6 +1311,24 @@ key 是 245568。</p>
             <span class="k">break</span>
 </pre></div>
 
+<p>or</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">gmpy2</span><span class="o">,</span> <span class="nn">string</span>
+<span class="n">enc</span> <span class="o">=</span> <span class="s">&#39;kgws{m8u8cm65-ue9k-44k5-8361-we225m76eeww}&#39;</span>
+<span class="n">k1</span> <span class="o">=</span> <span class="mi">123456</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="mi">321564</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">enc</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">97</span>
+        <span class="n">inv</span> <span class="o">=</span> <span class="n">gmpy2</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+        <span class="n">flag</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(((</span><span class="n">a</span><span class="o">-</span><span class="n">k2</span><span class="p">)</span><span class="o">*</span><span class="n">inv</span><span class="p">)</span> <span class="o">%</span> <span class="mi">13</span> <span class="o">+</span> <span class="mi">97</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flag</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</pre></div>
+
 <h3 id="rua">RUA<a class="headerlink" href="#rua" title="Permanent link"></a></h3>
 <p>解题思路
 <div class="codehilite"><pre><span class="kn">from</span> <span class="nn">gmpy2</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1351,4 +1369,18 @@ key 是 245568。</p>
 <h2 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p><a href="https://blog.csdn.net/qq_40568770/article/details/106185293">参考</a></p>
 <p><a href="https://mp.weixin.qq.com/s/LNtPjFzGoAJJoD1eMUXyJw">2020网鼎杯朱雀组部分Web题wp</a></p>
-<p><a href="https://mp.weixin.qq.com/s/ywprWgbW-8DvoSgxzpwcGw">2020网鼎杯-朱雀组-部分wp</a></p></article></body></html>
+<p><a href="https://mp.weixin.qq.com/s/ywprWgbW-8DvoSgxzpwcGw">2020网鼎杯-朱雀组-部分wp</a></p>
+<p><a href="https://mp.weixin.qq.com/s/XYkgD_5Y0FcgsNqRAb_1Yw">2020网鼎杯-朱雀组-Crypto、Misc(带视频) </a></p>
+<p><a href="https://mp.weixin.qq.com/s/rSdoGiCY4tsh5LvVHgZ0Ow">2020网鼎杯-朱雀组-Web(带视频)</a></p>
+<p><a href="https://mp.weixin.qq.com/s/I13vmPqrm4wVz5TPI8gwIg">2020网鼎杯-朱雀组-Misc、Pwn(带视频)</a></p>
+<p><a href="https://www.bilibili.com/video/BV1DK4y1t7e5">2020网鼎杯-朱雀组-key赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1z54y1D7Et">2020网鼎杯-朱雀组-think java赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1C54y1D7nN">2020网鼎杯-朱雀组-simpe赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV18g4y1i7dA">2020网鼎杯-朱雀组-phpweb赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1hg4y1i7ad">2020网鼎杯-朱雀组-九宫格赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1dg4y1B7aD">2020网鼎杯-朱雀组-云盾赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1qC4y1p7aE">2020网鼎杯-朱雀组-nmap赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1mt4y1C7xz">2020网鼎杯-朱雀组-go赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1xt4y1C7FD">2020网鼎杯-朱雀组-魔法房间赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Wz4y1d7Mx">2020网鼎杯-朱雀组-rua赛题讲解</a></p>
+<p><a href="https://www.bilibili.com/video/BV165411s7MN">2020网鼎杯-朱雀组-tree赛题讲解</a></p></article></body></html>

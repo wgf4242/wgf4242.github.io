@@ -255,6 +255,10 @@ key 是 245568。
 `flag{2c4fdc156fe74836954a05058c5d0382}`
 
 
+### 方法2
+
+二维码就2种zero和one，将每个图。生成hash值。0的hash值和1的hash值。
+
 ## misc 0x4 key_123
 
 解压密码123  然后钥匙图片改高度  锁图片binwalk分出来一个压缩包。
@@ -277,6 +281,7 @@ for x in range(0,len(aaa),2):
 # 需要注意的是，十六进制转成二进制后需要，每一个都要填充成8位长度，
 # 第一个字符的前两位需要从00改成11 (10，01，11，00) 都试一遍，
 # 不进行这个操作的话，解出来的第一个字符不在ASCii范围内
+# 
 tp = ('10','01','11','00')
 lst = [x+enc[2:] for x in tp]
 print([len(x) for x in lst])
@@ -313,6 +318,26 @@ for i in range(len(cipher)):
             break
 ```
 
+or
+
+```python
+import gmpy2, string
+enc = 'kgws{m8u8cm65-ue9k-44k5-8361-we225m76eeww}'
+k1 = 123456
+k2 = 321564
+flag = ''
+
+for i in enc:
+    if i in string.ascii_lowercase:
+        a = ord(i) - 97
+        inv = gmpy2.invert(k1, 13)
+        flag += chr(((a-k2)*inv) % 13 + 97)
+        print(flag)
+    else:
+        flag += i
+        print(flag)
+
+```
 
 ### RUA
 
@@ -367,3 +392,25 @@ for i in range(2,20):
 [2020网鼎杯-朱雀组-Web(带视频)](https://mp.weixin.qq.com/s/rSdoGiCY4tsh5LvVHgZ0Ow)
 
 [2020网鼎杯-朱雀组-Misc、Pwn(带视频)](https://mp.weixin.qq.com/s/I13vmPqrm4wVz5TPI8gwIg)
+
+[2020网鼎杯-朱雀组-key赛题讲解](https://www.bilibili.com/video/BV1DK4y1t7e5)
+
+[2020网鼎杯-朱雀组-think java赛题讲解](https://www.bilibili.com/video/BV1z54y1D7Et)
+
+[2020网鼎杯-朱雀组-simpe赛题讲解](https://www.bilibili.com/video/BV1C54y1D7nN)
+
+[2020网鼎杯-朱雀组-phpweb赛题讲解](https://www.bilibili.com/video/BV18g4y1i7dA)
+
+[2020网鼎杯-朱雀组-九宫格赛题讲解](https://www.bilibili.com/video/BV1hg4y1i7ad)
+
+[2020网鼎杯-朱雀组-云盾赛题讲解](https://www.bilibili.com/video/BV1dg4y1B7aD)
+
+[2020网鼎杯-朱雀组-nmap赛题讲解](https://www.bilibili.com/video/BV1qC4y1p7aE)
+
+[2020网鼎杯-朱雀组-go赛题讲解](https://www.bilibili.com/video/BV1mt4y1C7xz)
+
+[2020网鼎杯-朱雀组-魔法房间赛题讲解](https://www.bilibili.com/video/BV1xt4y1C7FD)
+
+[2020网鼎杯-朱雀组-rua赛题讲解](https://www.bilibili.com/video/BV1Wz4y1d7Mx)
+
+[2020网鼎杯-朱雀组-tree赛题讲解](https://www.bilibili.com/video/BV165411s7MN)

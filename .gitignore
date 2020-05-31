@@ -1,4 +1,5 @@
 **/node_modules/
 ctf/_book/
+ctf/**.html
 **/__pycache__/
 **/*.sublime-workspace

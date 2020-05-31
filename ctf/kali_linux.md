@@ -14,7 +14,10 @@ Repositories :
 ### Init 2
 sudo apt-get update
 sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility
-sudo gem install one_gadget 
+gem sources --remove https://rubygems.org/
+gem sources --add https://gems.ruby-china.com/
+gem sources -l
+sudo gem install one_gadget
 
 echo "------Add path to bash"
 echo export PATH=$PATH:/home/$USER/.local/bin >> ~/.bashrc
@@ -51,6 +54,8 @@ echo "alias cf='func() { checksec --file=\$1;}; func'" >> ~/.bashrc
 echo "----------RsaCtfTool"
 git clone https://github.com/Ganapati/RsaCtfTool.git
 cd ..
+
+sudo gem install zsteg
 #### 考虑安装 sage
 echo "----------sage"
 wget https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/sage-9.0-Ubuntu_18.04-x86_64.tar.bz2
@@ -480,8 +485,12 @@ https://blog.csdn.net/shenzhang7331/article/details/84311280
 https://www.freebuf.com/sectool/185468.html
 
 ## GDB 调试
+q 退出
 
 b *0x400100 (b main):在 0x400100 处下断点, d [number]：删除断点, d * 删除全部
+
+    b printf
+    b system
 
 r(run)  // 运行程序
 
@@ -499,6 +508,10 @@ x/200w $eax // 看eax的 200个4字节
 x/3uh 0x54320 //内存地址0x54320读取内容 3u 3w个字节
 
 x/3us 0x601080 //读取地址字符串
+
+p 输出
+
+    p __free_hook // 打印 freehook地址信息
 
 ### peda
 
