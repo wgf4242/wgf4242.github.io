@@ -1065,7 +1065,10 @@ body .markdown-body
 <li><a href="#2">方法2 反序列化</a></li>
 </ul>
 </li>
-<li><a href="#misc-0x2">misc 0x2 九宫格</a></li>
+<li><a href="#misc-0x2">misc 0x2 九宫格</a><ul>
+<li><a href="#2_1">方法2</a></li>
+</ul>
+</li>
 <li><a href="#misc-0x4-key_123">misc 0x4 key_123</a></li>
 <li><a href="#crypto">Crypto</a><ul>
 <li><a href="#simple">simple</a></li>
@@ -1260,6 +1263,8 @@ body .markdown-body
 key 是 245568。</p>
 <p>找个在线的解密一下。</p>
 <p><code>flag{2c4fdc156fe74836954a05058c5d0382}</code></p>
+<h3 id="2_1">方法2<a class="headerlink" href="#2_1" title="Permanent link"></a></h3>
+<p>二维码就2种zero和one，将每个图。生成hash值。0的hash值和1的hash值。</p>
 <h2 id="misc-0x4-key_123">misc 0x4 key_123<a class="headerlink" href="#misc-0x4-key_123" title="Permanent link"></a></h2>
 <p>解压密码123  然后钥匙图片改高度  锁图片binwalk分出来一个压缩包。
 然后就是看钥匙图片上的编码了&ndash;差分曼彻斯特
@@ -1277,6 +1282,7 @@ key 是 245568。</p>
 <span class="c1"># 需要注意的是，十六进制转成二进制后需要，每一个都要填充成8位长度，</span>
 <span class="c1"># 第一个字符的前两位需要从00改成11 (10，01，11，00) 都试一遍，</span>
 <span class="c1"># 不进行这个操作的话，解出来的第一个字符不在ASCii范围内</span>
+<span class="c1"># </span>
 <span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;10&#39;</span><span class="p">,</span><span class="s">&#39;01&#39;</span><span class="p">,</span><span class="s">&#39;11&#39;</span><span class="p">,</span><span class="s">&#39;00&#39;</span><span class="p">)</span>
 <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">enc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tp</span><span class="p">]</span>
 <span class="k">print</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">])</span>
