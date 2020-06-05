@@ -22,3 +22,6 @@
 
 [2020_网鼎杯](./ctf/writeup/2020-网鼎杯.md)
 
+
+[buuctf](./ctf/writeup/buuctf.md)
+

