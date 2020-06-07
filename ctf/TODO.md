@@ -34,3 +34,46 @@ upper of 32 bit RFlags are reversed?
 
 针对RSA的攻击之 Coppersmith定理攻击
 https://www.52pojie.cn/thread-653446-1-1.html
+
+## TODO Crypto
+
+sage库的使用
+
+## TODO pwn
+
+# radare2使用
+
+r2 ./bof
+
+aa分析
+
+afl看函数 analysis function list
+
+跳到main
+s main
+s 0x1234地址
+V 看内存
+VV 进入virtual mode，能看图
+
+s sym.hidden
+VV
+看绿色 call sym.imp.system 参数是 bin/sh
+s sym.main(转到main)
+
+
+执行
+./bof1
+
+光标处按:提示:> 修改，
+:> afvn改名字
+local_10h 改为 input
+:> afvn input local_10h
+
+## gdb
+fin, 跳出跟踪的函数 
+gdb 使用finish命令（缩写fin）
+
+b main 在main断点
+
+p32 用32bit将数字转字符串
+p64 用64bit将数字转字符串

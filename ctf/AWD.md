@@ -67,6 +67,11 @@ RouterScan.exe , HttpScan.py
 
 [AWD线下备忘录](https://www.fuzzer.xyz/2019/04/02/AWD线下准备指南/)
 
+#### 清除痕迹
+
+var/log, 日志
+bash_history等 等
+
 # AWD 
 ABC3人
 
