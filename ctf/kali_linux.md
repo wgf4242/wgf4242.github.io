@@ -498,6 +498,8 @@ n  //ni：单步步过
 
 s  //si：单步步入
 
+fin // 执行到返回
+
 i r // info register
 
 x/5s $eax  // 看5个 s字符串
