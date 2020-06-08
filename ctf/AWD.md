@@ -1,192 +1,192 @@
 [TOC]
 
-×î½üµÄ±ÈÈüÓÐ:
+æœ€è¿‘çš„æ¯”èµ›æœ‰:
 ID:HSCTF
 HSCTF 7 https://hsctf.com/
-½«ÔÚ16Ð¡Ê±18·Öºó½áÊø£¬½áÊøÊ±¼ä6ºÅ8µãÕû
+å°†åœ¨16å°æ—¶18åˆ†åŽç»“æŸï¼Œç»“æŸæ—¶é—´6å·8ç‚¹æ•´
 ID:Defenit
 2020 Defenit CTF https://ctf.defenit.kr/about
-½«ÔÚ1Ð¡Ê±18·Öºó¿ªÊ¼£¬¿ªÊ¼Ê±¼ä½ñÌì17µãÕû£¬½áÊøÊ±¼ä7ºÅ17µãÕû
+å°†åœ¨1å°æ—¶18åˆ†åŽå¼€å§‹ï¼Œå¼€å§‹æ—¶é—´ä»Šå¤©17ç‚¹æ•´ï¼Œç»“æŸæ—¶é—´7å·17ç‚¹æ•´
 ID:RA
 Really Awesome CTF 2020 https://ractf.co.uk/
-½«ÔÚ9Ð¡Ê±18·Öºó¿ªÊ¼£¬¿ªÊ¼Ê±¼ä6ºÅ1µãÕû£¬½áÊøÊ±¼ä10ºÅ1µãÕû
+å°†åœ¨9å°æ—¶18åˆ†åŽå¼€å§‹ï¼Œå¼€å§‹æ—¶é—´6å·1ç‚¹æ•´ï¼Œç»“æŸæ—¶é—´10å·1ç‚¹æ•´
 ID:BwtPwn
 BatPwn - BSides Ahmedabad CTF 2020 https://bsidesahmedabad.in/BATPWN/
-½«ÔÚ13Ð¡Ê±18·Öºó¿ªÊ¼£¬¿ªÊ¼Ê±¼ä6ºÅ5µãÕû£¬½áÊøÊ±¼ä7ºÅ5µãÕû
+å°†åœ¨13å°æ—¶18åˆ†åŽå¼€å§‹ï¼Œå¼€å§‹æ—¶é—´6å·5ç‚¹æ•´ï¼Œç»“æŸæ—¶é—´7å·5ç‚¹æ•´
 ID:CyberHack
 CyberHackCTF 2020 https://cyberhack.tech/
-½«ÔÚ1Ìì2Ð¡Ê±ºó¿ªÊ¼£¬¿ªÊ¼Ê±¼ä6ºÅ18µã°ë£¬½áÊøÊ±¼ä7ºÅ18µã°ë
+å°†åœ¨1å¤©2å°æ—¶åŽå¼€å§‹ï¼Œå¼€å§‹æ—¶é—´6å·18ç‚¹åŠï¼Œç»“æŸæ—¶é—´7å·18ç‚¹åŠ
 
 
 SQL labs
 
 
 
-# CTFÏßÏÂ¹¥·ÀÈü
+# CTFçº¿ä¸‹æ”»é˜²èµ›
 
-## SSHµÇÂ¼ÐÞ¸ÄÕËÃØ
+## SSHç™»å½•ä¿®æ”¹è´¦ç§˜
 
-### ÏÂÔØWebÐÅÏ¢
+### ä¸‹è½½Webä¿¡æ¯
 
-### ÉÏWAF
-### ÎÄ¼þ¼à¿Ø
+### ä¸ŠWAF
+### æ–‡ä»¶ç›‘æŽ§
 
-log·ÖÎö - ÀûÓÃ±ðÈË¼ÒµÄ½Å±¾
+logåˆ†æž - åˆ©ç”¨åˆ«äººå®¶çš„è„šæœ¬
 
-### ¶Ë¿ÚÉ¨Ãè
+### ç«¯å£æ‰«æ
 
-## Ö÷»ú·¢ÏÖ
+## ä¸»æœºå‘çŽ°
 
 RouterScan.exe , HttpScan.py
 
-### ¶Ë¿ÚÉ¨Ãè - Nmap
+### ç«¯å£æ‰«æ - Nmap
 
-·þÎñ·ÖÎö
+æœåŠ¡åˆ†æž
 
-### ºÚºÐ²âÊÔ
+### é»‘ç›’æµ‹è¯•
 
-* Ä¿Â¼É¨Ãè
+* ç›®å½•æ‰«æ
     
-    * ºóÃÅ±¬ÆÆ - k8Ò»¾ä»°±¬ÆÆ
+    * åŽé—¨çˆ†ç ´ - k8ä¸€å¥è¯çˆ†ç ´
     * k8fly
 
-#### È¨ÏÞÎ¬³Ö
+#### æƒé™ç»´æŒ
 
-ÖÖÖ²²»ËÀÂí(ÎÄ¼þÒþ²Ø) - Ìõ¼þ¾ºÕù - ÅúÁ¿ÉÏ´«+ÅúÁ¿·ÃÎÊ
+ç§æ¤ä¸æ­»é©¬(æ–‡ä»¶éšè—) - æ¡ä»¶ç«žäº‰ - æ‰¹é‡ä¸Šä¼ +æ‰¹é‡è®¿é—®
 
-    ²»ËÀÂí½â¾ö·½°¸£º 1.É±½ø³Ì 2.¾ºÕùÐ´Èë3.¶ÏApache£¨±»·¢ÏÖ¿Û·Ö£©
-    ×îºÃÊÇÖÖmd5Âí¡£·ÀÖ¹·´´ò¡£
-    echo system("curl 10.0.0.1") => ÅúÁ¿»ñÈ¡
+    ä¸æ­»é©¬è§£å†³æ–¹æ¡ˆï¼š 1.æ€è¿›ç¨‹ 2.ç«žäº‰å†™å…¥3.æ–­Apacheï¼ˆè¢«å‘çŽ°æ‰£åˆ†ï¼‰
+    æœ€å¥½æ˜¯ç§md5é©¬ã€‚é˜²æ­¢åæ‰“ã€‚
+    echo system("curl 10.0.0.1") => æ‰¹é‡èŽ·å–
 
-·´µ¯shell
+åå¼¹shell
 
-ÐÅÏ¢Òþ²Ø
+ä¿¡æ¯éšè—
 
-     ÎÄ¼þÇ°Ãæ¼Ó.±ÈÈç1.php => .1.php
-     ¶à¸öÄ¿Â¼ÏÂÖÖÂí£¬asp, jspÂí¶¼³¢ÊÔÏÂ¡£
+     æ–‡ä»¶å‰é¢åŠ .æ¯”å¦‚1.php => .1.php
+     å¤šä¸ªç›®å½•ä¸‹ç§é©¬ï¼Œasp, jspé©¬éƒ½å°è¯•ä¸‹ã€‚
 
-[AWDÏßÏÂ±¸ÍüÂ¼](https://www.fuzzer.xyz/2019/04/02/AWDÏßÏÂ×¼±¸Ö¸ÄÏ/)
+[AWDçº¿ä¸‹å¤‡å¿˜å½•](https://www.fuzzer.xyz/2019/04/02/AWDçº¿ä¸‹å‡†å¤‡æŒ‡å—/)
 
-#### Çå³ýºÛ¼£
+#### æ¸…é™¤ç—•è¿¹
 
-var/log, ÈÕÖ¾
-bash_historyµÈ µÈ
+var/log, æ—¥å¿—
+bash_historyç­‰ ç­‰
 
 # AWD 
-ABC3ÈË
+ABC3äºº
 
-1.dumpÄ¿Â¼µÄÔ´Âë¡£¡£¡£±¸·ÝÏÂ¡£ /var/www/html£¬
-2.D¶ÜÉ¨Ò»ÏÂ¡£
-2.1 Í¬Ê±ÅÉÒ»¸öÈË nmapµÈ¹¤¾ß ÐÅÏ¢ÊÕ¼¯
-¹Ø±Õ·Ç±ØÒª¶Ë¿Ú£¬ÁôÏÂ»ù±¾¶Ë¿Ú¡£
-¿´ÏÂÄ¿Â¼½á¹¹¡£
-×¼±¸waf£¬·ÅÉÏ£¬È»ºó²âÊÔ×Ô¼ºÖ÷»úµÄ·þÎñ£¨²»ÒªÈÃ×Ô¼ºµÄÖ÷»úµ±»ú£©¡£Ö÷°ì·½¶¨Ê±»ácheck»ù±¾·þÎñÓÐÃ»ÓÐ¡£
-ÉÏÎÄ¼þ¼à¿ØºÍÁ÷Á¿¼à¿Ø(Wireshark¼à¿ØÒ»ÏÂ)
-¿´/var/log ÀïµÄÈÕÖ¾¡£
+1.dumpç›®å½•çš„æºç ã€‚ã€‚ã€‚å¤‡ä»½ä¸‹ã€‚ /var/www/htmlï¼Œ
+2.Dç›¾æ‰«ä¸€ä¸‹ã€‚
+2.1 åŒæ—¶æ´¾ä¸€ä¸ªäºº nmapç­‰å·¥å…· ä¿¡æ¯æ”¶é›†
+å…³é—­éžå¿…è¦ç«¯å£ï¼Œç•™ä¸‹åŸºæœ¬ç«¯å£ã€‚
+çœ‹ä¸‹ç›®å½•ç»“æž„ã€‚
+å‡†å¤‡wafï¼Œæ”¾ä¸Šï¼Œç„¶åŽæµ‹è¯•è‡ªå·±ä¸»æœºçš„æœåŠ¡ï¼ˆä¸è¦è®©è‡ªå·±çš„ä¸»æœºå½“æœºï¼‰ã€‚ä¸»åŠžæ–¹å®šæ—¶ä¼šcheckåŸºæœ¬æœåŠ¡æœ‰æ²¡æœ‰ã€‚
+ä¸Šæ–‡ä»¶ç›‘æŽ§å’Œæµé‡ç›‘æŽ§(Wiresharkç›‘æŽ§ä¸€ä¸‹)
+çœ‹/var/log é‡Œçš„æ—¥å¿—ã€‚
 
    
-×Ô¶¯»¯ÅúÁ¿Ìá½»½Å±¾, curl, getflag,
+è‡ªåŠ¨åŒ–æ‰¹é‡æäº¤è„šæœ¬, curl, getflag,
 
-## ¹¥»÷Á÷³Ì
+## æ”»å‡»æµç¨‹
 
-3. ÉÏWAF¡¢ÉÏ¼à¿Ø¡¢Ö»Áô±ØÒª¶Ë¿Ú
+3. ä¸ŠWAFã€ä¸Šç›‘æŽ§ã€åªç•™å¿…è¦ç«¯å£
 
-²¿ÊðWAF
+éƒ¨ç½²WAF
 
-²¿ÊðÎÄ¼þ¼à¿Ø½Å±¾
+éƒ¨ç½²æ–‡ä»¶ç›‘æŽ§è„šæœ¬
 
-²¿ÊðÁ÷³Ì¼à¿Ø½Å±¾»ò¿ªÆô·þÎñÆ÷ÈÕÖ¾¼ÇÂ¼¡£
+éƒ¨ç½²æµç¨‹ç›‘æŽ§è„šæœ¬æˆ–å¼€å¯æœåŠ¡å™¨æ—¥å¿—è®°å½•ã€‚
 
-[AWD¹¥·ÀÈüÖ®¸÷ÀàÂ©¶´FIX·½°¸](https://www.freebuf.com/articles/web/208778.html)
+[AWDæ”»é˜²èµ›ä¹‹å„ç±»æ¼æ´žFIXæ–¹æ¡ˆ](https://www.freebuf.com/articles/web/208778.html)
 
-## ³£ÓÃÃüÁî
+## å¸¸ç”¨å‘½ä»¤
 
-    ssh <-p ¶Ë¿Ú>  ÓÃ»§Ãû@IP
-    scp ÎÄ¼þÂ·¾¶  ÓÃ»§Ãû@IP£º´æ·ÅÂ·¾¶
+    ssh <-p ç«¯å£>  ç”¨æˆ·å@IP
+    scp æ–‡ä»¶è·¯å¾„  ç”¨æˆ·å@IPï¼šå­˜æ”¾è·¯å¾„
     tar -zcvf web.tar.gz /var/www/html
-    pkill -kill -t <ÓÃ»§tty>
+    pkill -kill -t <ç”¨æˆ·tty>
 
-²é¿´ÒÑ½¨Á¢ÍøÂçÁ¬½Ó¼°½ø³Ì
+æŸ¥çœ‹å·²å»ºç«‹ç½‘ç»œè¿žæŽ¥åŠè¿›ç¨‹
 
     netstat -antulp | grep EST
 
-²é¿´Ö¸¶¨¶Ë¿Ú±»ÄÄ¸ö½ø³ÌÕ¼ÓÃ
+æŸ¥çœ‹æŒ‡å®šç«¯å£è¢«å“ªä¸ªè¿›ç¨‹å ç”¨
 
-    lsof -i:¶Ë¿ÚºÅ »òÕß netstat -tunlpl | grep ¶Ë¿ÚºÅ
+    lsof -i:ç«¯å£å· æˆ–è€… netstat -tunlpl | grep ç«¯å£å·
 
-½áÊø½ø³ÌÃüÁî
+ç»“æŸè¿›ç¨‹å‘½ä»¤
 
     kill PID
-    killall <½ø³ÌÃû>
+    killall <è¿›ç¨‹å>
     kill - <PID>
 
-·âÉ±Ä³¸öIP»òÕßip¶Î£¬ Èç:
+å°æ€æŸä¸ªIPæˆ–è€…ipæ®µï¼Œ å¦‚:
 
     iptables -I INPUT -s . j DROP 
     iptables -I INPUT-S ./ j DROP
 
-½ûÖ¹´ÓÄ³¸öÖ÷»ússhÔ¶³Ì·ÃÎÊµÇÂ½µ½±¾»ú£¬Èç123..
+ç¦æ­¢ä»ŽæŸä¸ªä¸»æœºsshè¿œç¨‹è®¿é—®ç™»é™†åˆ°æœ¬æœºï¼Œå¦‚123..
 
     iptable -t filter -A INPUT -s . p tcp -- dport j DROP
 
-±¸·ÝmysqlÊý¾Ý¿â
+å¤‡ä»½mysqlæ•°æ®åº“
 
-    mysqldump -u ÓÃ»§Ãû -pÃÜÂë Êý¾Ý¿âÃû > back.sql
+    mysqldump -u ç”¨æˆ·å -på¯†ç  æ•°æ®åº“å > back.sql
     mysqldump --all-databases >> bak.sql
 
-»¹Ô­mysqlÊý¾Ý¿â
+è¿˜åŽŸmysqlæ•°æ®åº“
 
-    mysql -u ÓÃ»§Ãû -p ÃÜÂë Êý¾Ý¿âÃû < bak.sql
+    mysql -u ç”¨æˆ·å -p å¯†ç  æ•°æ®åº“å < bak.sql
     find / *.php -perm
     awk -F: /etc/passwd
     crontab -l
 
-¼ì²âËùÓÐµÄtcpÁ¬½ÓÊýÁ¿¼°×´Ì¬
+æ£€æµ‹æ‰€æœ‰çš„tcpè¿žæŽ¥æ•°é‡åŠçŠ¶æ€
 
     netstat --ant | awk | grep | sed -e -e | sort | uniq -c | sort -rn
 
-²é¿´Ò³Ãæ·ÃÎÊÅÅÃûÇ°Ê®µÄIP
+æŸ¥çœ‹é¡µé¢è®¿é—®æŽ’åå‰åçš„IP
     
     cat /var/1og/apache2/access.1og | cut -f1 -d | sort | uniq -c | sort -k -r | head
 
-²éÕßÒ³Ãæ·ÃÎÊÅÅÃûÇ°Ê®µÄURL
+æŸ¥è€…é¡µé¢è®¿é—®æŽ’åå‰åçš„URL
 
     cat /var/log/apache2/access.log | cut -f4 -d | sort | uniq -c | sort -k -r | head
 
-## ×ÊÔ´·ÖÏí
+## èµ„æºåˆ†äº«
 
-[AWD ×ÊÔ´Ð¡ºÏ¼¯(³ÖÐø¸üÐÂ)](https://neversec.top/20190415/how-to-awd.html)
+[AWD èµ„æºå°åˆé›†(æŒç»­æ›´æ–°)](https://neversec.top/20190415/how-to-awd.html)
 
 [linux-kernel-exploits](https://github.com/SecWiki/linux-kernel-exploits)
 
-[AWDÏßÏÂÈü½Å±¾¼¯ºÏ](https://github.com/admintony/Prepare-for-AWD)
+[AWDçº¿ä¸‹èµ›è„šæœ¬é›†åˆ](https://github.com/admintony/Prepare-for-AWD)
 
-### ³£ÓÃ¹¤¾ß
+### å¸¸ç”¨å·¥å…·
 
     Burpsuite
     Sqlmap
-    Nmap¡¢masscan¡¢ Óù½£¡¢wpscan
+    Nmapã€masscanã€ å¾¡å‰‘ã€wpscan
     nc
-    D¶Ü¡¢Seay¡¢ Rips¡¢ °²È«¹·
-    MobaXterm¡¢Xshell¡¢ Xftp
-    ²Ëµ¶»òÒÏ½£
-    Chrome¡¢Firefox¸÷Àà²å¼þ
+    Dç›¾ã€Seayã€ Ripsã€ å®‰å…¨ç‹—
+    MobaXtermã€Xshellã€ Xftp
+    èœåˆ€æˆ–èšå‰‘
+    Chromeã€Firefoxå„ç±»æ’ä»¶
     Hackbar
     Kali
-    PythonµÄ¸÷Ààº¯Êý¿â¡¢Èí¼þ°ü
+    Pythonçš„å„ç±»å‡½æ•°åº“ã€è½¯ä»¶åŒ…
 
-### ´úÂë±È½Ï¹¤¾ß
+### ä»£ç æ¯”è¾ƒå·¥å…·
 
 BeyondCompare(Windows)
 
 Kaleidoscope(MacOS)
 
-### Ò»¾ä»°Ä¾Âí
+### ä¸€å¥è¯æœ¨é©¬
 
-php,asp,aspx,jsp, ÄÚ´æÂí
+php,asp,aspx,jsp, å†…å­˜é©¬
 
-## ÆäËû×¼±¸
+## å…¶ä»–å‡†å¤‡
 
-ÌáÇ°×¼±¸ºÃ¸÷ÖÖcmdµÄpoc¡¢exp(phpwin, phpcms, dz)
+æå‰å‡†å¤‡å¥½å„ç§cmdçš„pocã€exp(phpwin, phpcms, dz)
 
-»¹ÓÐ¸÷ÖÖ×Ô¶¯»¯½Å±¾£¬ÆðÂëÓÐ¸öÄ£°å
+è¿˜æœ‰å„ç§è‡ªåŠ¨åŒ–è„šæœ¬ï¼Œèµ·ç æœ‰ä¸ªæ¨¡æ¿
