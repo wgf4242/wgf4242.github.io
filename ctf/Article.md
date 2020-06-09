@@ -1,3 +1,5 @@
+[writeup合集](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MjM5MTYxNjQxOA==&scene=24&album_id=1348037928399978498#wechat_redirect)
+
 
 [cryptopals解密之旅 （一）](https://mp.weixin.qq.com/s/K4of_eURKFfBUrWbCJOcgQ)
 
@@ -30,4 +32,30 @@
 [听说你还不会UAF？](https://mp.weixin.qq.com/s/Jg6Usu58LXnHarMsR9Ok8w)
 
 [Zer0pts CTF 2020的web赛后记录+复现环境](https://mp.weixin.qq.com/s/Wb79jxc3lL6NJGFAJbbhkQ)
+
+[HW防守 | Linux应急响应基础](https://mp.weixin.qq.com/s/f38CmhZCXPvz5P-c17z-Bw)
+
+[HW防守之日志分析 二](https://mp.weixin.qq.com/s/B3qBIQjqpMNRIRfES1LA6w)
+
+[内网渗透 | 内网转发工具的使用](https://mp.weixin.qq.com/s/xtZ06I6tQ2cIrOHxKYimTg)
+
+[vulnhub靶机渗透-Connectthedots](https://mp.weixin.qq.com/s/FwScUJMB_IEcNgQAqDnK1g)
+
+
+[GKCTF-官方WriteUp首发(WEB)](https://mp.weixin.qq.com/s/_47-PqbR_R3n4YLMNrrivA)
+
+[PlaidCTF2020 Mooz Chat 复盘](https://mp.weixin.qq.com/s/EvtvpOsXXpnGpFt8d48Zvw)
+
+[RCTF 2020 Writeup](https://mp.weixin.qq.com/s/0J9Omna8tmKWP9s4iSg10w)
+
+
+[CTF部分堆利用总结](https://mp.weixin.qq.com/s/3l5lqrlFxOwmQeGfiigoMg)
+
+
+[sqlmap 盲注速度提升技巧](https://mp.weixin.qq.com/s/BAm5b-i20Peky1hrUeMOiw)
+
+[Dvwa 通关秘籍（下篇）](https://mp.weixin.qq.com/s/CIeKSNXYbXYNpN_K9lQLIA)
+
+[新手向总结：IDA动态调试So的一些坑](https://mp.weixin.qq.com/s/91r1cKyL_1UR79OP2XubqA)
+
 
