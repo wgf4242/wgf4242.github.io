@@ -1,3 +1,6 @@
+# Tool
+
+[WAScan Web应用程序扫描工具](https://mp.weixin.qq.com/s/UnKA06FHBSvWdMQulqsCrg)
 
 # Article
 
@@ -88,4 +91,13 @@
 
 
 
+IoT 固件 Hook&Patch
+
+https://www.bilibili.com/video/BV1uf4y1177F
+
 [$299 零基础入门PWN](https://www.kanxue.com/book-brief-57.htm)
+
+
+Web安全基础教程
+
+https://www.kanxue.com/book-brief-36.htm

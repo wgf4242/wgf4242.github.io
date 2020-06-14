@@ -13,7 +13,7 @@ Repositories :
     deb http://http.kali.org/kali kali-rolling main non-free contrib
 ### Init 2
 sudo apt-get update
-sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility
+sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility texinfo
 gem sources --remove https://rubygems.org/
 gem sources --add https://gems.ruby-china.com/
 gem sources -l
@@ -41,7 +41,7 @@ pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan xortools
 pip install utf9
 
 echo "------Config vim -------"
-echo "set mouse=c">~/.vimrc
+echo "set mouse=c">>~/.vimrc
 
 echo "------In Downloads -------"
 cd ~/Downloads
@@ -485,6 +485,8 @@ https://blog.csdn.net/shenzhang7331/article/details/84311280
 https://www.freebuf.com/sectool/185468.html
 
 ## GDB 调试
+直接回车 表示重复上一条命令:
+
 q 退出
 
 b *0x400100 (b main):在 0x400100 处下断点, d [number]：删除断点, d * 删除全部
@@ -495,6 +497,7 @@ b *0x400100 (b main):在 0x400100 处下断点, d [number]：删除断点, d * �
 r(run)  // 运行程序
 
 n  //ni：单步步过
+n 5 // 走5步
 
 s  //si：单步步入
 
@@ -520,6 +523,8 @@ p 输出
 info file  // 查看当前文件的信息，例如程序入口点
 
 info b(reak) // 查看当前断点信息
+
+disass + main
 
 disassemble + func // 对指定的函数进行反汇编
 

@@ -14,8 +14,6 @@ png 校验 CRC
 
 https://www.baidu.com/s?ie=UTF-8&wd=%E9%80%86%E5%90%91%20angr
 
-ida符号插件
-
 upper of 32 bit RFlags are reversed?
 
 得到一个压缩包解压得到文件data.vmem放入kali使用内存取证工具volatility volatility -fdata.vmem imageinfo命令判断信息
