@@ -283,6 +283,12 @@ eyJ1c2VybmFtZSI6eyIgYiI6IlozVmxjM1E9In19.XujrrQ.xoAx5K_C3G02upLFocfEAgH2KUg
 
 {"username":{" b":"Z3Vlc3Q="}}
 ## xweb6
+## xweb5
+method=logout
+/phpinfo.php
+## xweb8未测
 
 ## 打不开
 whoami-考核 
+web11
+web7
