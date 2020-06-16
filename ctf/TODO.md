@@ -1,4 +1,8 @@
 # TODO
+
+ida call analysis failed
+https://www.baidu.com/s?ie=UTF-8&wd=ida%20call%20analysis%20failed
+
 sql怎样fuzz
 
 sql 宽字节注入

