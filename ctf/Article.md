@@ -64,6 +64,19 @@
 
 [新手向总结：IDA动态调试So的一些坑](https://mp.weixin.qq.com/s/91r1cKyL_1UR79OP2XubqA)
 
+## Web-sql
+[sql注入绕过方法总结](https://mp.weixin.qq.com/s/G_duPVXpTJWKZDZeQ0Dh0g)
+
+## Web-Xss
+
+[xss game挑战笔记](https://mp.weixin.qq.com/s/POGZk99TlhNqfki_5dxbPw)
+
+[ctf xss注入](https://mp.weixin.qq.com/s/41A2ByHEjAXmadhnkMlp3w)
+
+# AWD
+
+[干货|HW弹药库之红队作战手册 建议收藏](https://mp.weixin.qq.com/s/ShLwGq7zoDG9nc_gEnKxOA)
+
 
 # Video
 

