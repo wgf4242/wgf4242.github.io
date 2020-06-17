@@ -283,10 +283,16 @@ eyJ1c2VybmFtZSI6eyIgYiI6IlozVmxjM1E9In19.XujrrQ.xoAx5K_C3G02upLFocfEAgH2KUg
 
 {"username":{" b":"Z3Vlc3Q="}}
 ## xweb6
+
+2019巅峰极客upload
+
+https://www.chainnews.com/articles/284498604176.htm
+
+https://www.anquanke.com/post/id/189142#h3-12
+
 ## xweb5
 method=logout
 /phpinfo.php
-## xweb8未测
 
 ## 打不开
 whoami-考核 
