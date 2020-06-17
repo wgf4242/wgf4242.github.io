@@ -6,7 +6,6 @@
 
 [writeup合集](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MjM5MTYxNjQxOA==&scene=24&album_id=1348037928399978498#wechat_redirect)
 
-
 [cryptopals解密之旅 （一）](https://mp.weixin.qq.com/s/K4of_eURKFfBUrWbCJOcgQ)
 
 [cryptopals解密之旅 （二）](https://mp.weixin.qq.com/s/cWsS45CybryhWqyyaRMrMg)
@@ -63,6 +62,11 @@
 [Dvwa 通关秘籍（下篇）](https://mp.weixin.qq.com/s/CIeKSNXYbXYNpN_K9lQLIA)
 
 [新手向总结：IDA动态调试So的一些坑](https://mp.weixin.qq.com/s/91r1cKyL_1UR79OP2XubqA)
+
+[探寻逻辑漏洞挖掘的通用思路](https://www.bilibili.com/video/BV1rz411v7JA)
+
+[RFIDHacKing频射硬件入门](https://www.bilibili.com/video/BV1Ki4y147cA)
+[PHP框架中的反序列化Gadget挖掘](https://www.bilibili.com/video/BV1L54y1R7La)
 
 ## Web-sql
 [sql注入绕过方法总结](https://mp.weixin.qq.com/s/G_duPVXpTJWKZDZeQ0Dh0g)
