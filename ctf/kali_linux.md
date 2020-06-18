@@ -505,6 +505,8 @@ fin // 执行到返回
 
 i r // info register
 
+x/16wx $esp // 查看栈情况
+
 x/5s $eax  // 看5个 s字符串
 x/5sw $eax // 看5个 s字符串 w--dword 双字
 
