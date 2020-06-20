@@ -45,33 +45,6 @@ sage库的使用
 
 ## TODO pwn
 
-# radare2使用
-
-r2 ./bof
-
-aa分析
-
-afl看函数 analysis function list
-
-跳到main
-s main
-s 0x1234地址
-V 看内存
-VV 进入virtual mode，能看图
-
-s sym.hidden
-VV
-看绿色 call sym.imp.system 参数是 bin/sh
-s sym.main(转到main)
-
-
-执行
-./bof1
-
-光标处按:提示:> 修改，
-:> afvn改名字
-local_10h 改为 input
-:> afvn input local_10h
 
 ## gdb
 fin, 跳出跟踪的函数 

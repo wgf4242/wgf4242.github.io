@@ -201,20 +201,89 @@ nmap
     -iL nmaptest.txt  # 扫描文件中列出的所有IP地址
     -oN vege.txt # 保存扫描结果到 vege.txt
 
+### 查看文件
+
+cat, more, less
+
+    less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。
+
+### 字符串处理 String
+
+cat 显示文件
+    
+    输出多行到文本
+    cat <<EOT >> ~/twolines
+    line1
+    line2
+    EOT
+
+相同行合并字串 paste file1 file2
+    
+    cat file1
+        1
+        2
+    cat file2
+        a
+        b
+    paste file1 file2
+        1 a
+        2 b
+    paste -d: file1 file2
+        1:a
+        2:b
+
+awk
+
+    以逗号分割，打印2,3列
+    用-F指定一个或者多个
+    cat test.csv | awk -F "," '{print $2,$3}'
+    也可以用BEGIN块+FS来处理，OFS表示输出的分隔符
+    cat test.csv | awk 'BEGIN{FS=",";OFS=";" }{ print $2,$3}'
+
+    NR:表示当前记录数
+    FNR:也表示当前记录数，但是FNR的作用域只在一个文件内.如果重新打开文件,FNR会从1开始.
+    
+    合并追加
+    $ awk 'NR==FNR{a[$2]=$0;next}NR>FNR{if($1 in a)print a[$1],$2}' fil1 file2>file3
+        当NR==FNR为真时,判断当前读入的是第一个文件，然后使用{a[$2]=$0;next}循环将第一个文件的每行记录都存入数组a,并使用$2第2个字段cid作为下标引用.
+        由NR>FNR为假时,判断当前读入了第二个文件，然后判断第二个文件的第一个字段cid是否在数组a中，如果在的话执行{print a[$1],$2}，打印出数组a和第二个文件的第二个字段此时变量$1为第二个文件的第一个字段,与读入第一个文件时,采用第一个文件第二个字段$2 status。最后将经过输出到file3中。
+        $ cat fil1
+        st cid name
+        1 111 wy
+        2 222 xlx
+        3 333 ww
+        4 444 yyy
+
+        $ cat file2
+        cid status
+        111 a
+        222 b
+        333 c
+
+        $ cat file3
+        st cid name status
+        1 111 wy a
+        2 222 xlx b
+        3 333 ww c
+
+
+sed
+    
+    sed -i "s/F;/\?/g"  isFraud.csv  // F; 替换为 ?
+    sed -i "s/T;/\?/g"  isFraud.csv  // T; 替换为 ?
+
 ### vim
 永久配置 
 
     vim ~/.vimrc
+    # 解决不能复制
     set mouse=c
 
-不能复制
 #### Shell 等加密常用
-
 
 [dd](https://www.cnblogs.com/misswangxing/p/10911969.html)将bmp文件0x1171a9后面取出来。
 
     dd if=./phrack.bmp of=out.png ibs=0x1171a9 skip=1 count=1
-
 
 echo 1 | sha256sum
 
@@ -519,7 +588,14 @@ x/3us 0x601080 //读取地址字符串
 p 输出
 
     p __free_hook // 打印 freehook地址信息
+    p shel // 打印 shell
 
+如何查找函数三种方式
+```sh
+shell$ objdump -M intel -d test | less
+gdb-peda$ p shell
+r2$ afl~shell
+```
 ### peda
 
 info file  // 查看当前文件的信息，例如程序入口点
