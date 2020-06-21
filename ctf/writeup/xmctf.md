@@ -387,7 +387,7 @@ if __name__ == "__main__":
 https://0day.design/2018/12/20/Swpu%20CTF%202018%20Writeup/
 
 https://www.google.com/search?q=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&oq=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8
-
+https://0day.design/2018/12/20/Swpu%20CTF%202018%20Writeup/
 ## xweb5
 method=logout
 /phpinfo.php
