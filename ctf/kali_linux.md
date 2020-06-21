@@ -37,7 +37,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host=mirrors.aliyun.com
 EOT
 echo "------pip install file -------"
-pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan xortools
+pip3 install gmpy2 pycrypto rsa pillow pwntools angr ropgadget wscan xortools flask-unsign
 pip install utf9
 
 echo "------Config vim -------"

