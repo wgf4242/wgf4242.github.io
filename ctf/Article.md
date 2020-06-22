@@ -10,6 +10,8 @@
 
 [cryptopals解密之旅 （二）](https://mp.weixin.qq.com/s/cWsS45CybryhWqyyaRMrMg)
 
+[cryptopals解密之旅 （三）](https://mp.weixin.qq.com/s/ZrV3evGqCuzaJXgq_9J_DA)
+
 [今天你pwn了吗（三）](https://mp.weixin.qq.com/s/nYMn-sJ44ckLhVyD6YURPg)
 
 [HexionCTF web&crypto&misc题目分析](https://mp.weixin.qq.com/s/aPxB8SSMBNw-HwLZL5bmWA)
