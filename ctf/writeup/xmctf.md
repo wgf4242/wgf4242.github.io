@@ -453,6 +453,8 @@ sql盲注。从这里开始
 method=logout
 /phpinfo.php
 
+open_basedir    /var/www/html/:/tmp/:/flag  /var/www/html/:/tmp/:/flag
+
 ## 打不开
 whoami-考核 
 web7
