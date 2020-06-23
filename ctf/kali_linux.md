@@ -13,7 +13,7 @@ Repositories :
     deb http://http.kali.org/kali kali-rolling main non-free contrib
 ### Init 2
 sudo apt-get update
-sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility texinfo
+sudo apt-get install -y checksec foremost gdb libgmp3-dev libmpc-dev python3-pip g++ libssl-dev zlib1g-dev gnuplot steghide outguess volatility texinfo terminator
 gem sources --remove https://rubygems.org/
 gem sources --add https://gems.ruby-china.com/
 gem sources -l
@@ -127,6 +127,12 @@ https://www.jianshu.com/p/ddf9376334cd
 
 xdg-open .
 
+man 帮助
+
+man 1 ls      man1是普通的shell命令比bai如ls
+man 2 open    man2是系统调用比如open，write说明，
+man 3 printf  man3是函数说明
+
 dd if=源文件名 bs=1 skip=开始分离的字节数 of=输出文件名
 
 man [command] 查看帮助, 如 man atoi
@@ -160,6 +166,7 @@ who 查看谁连接了服务器
   pts 为远程终端
   pkill -kill -t pts/0 # /后面0是终端号
 
+### 调试相关
 
 如何用脚本输入程序运行参数：
 
@@ -170,6 +177,11 @@ who 查看谁连接了服务器
 cyclic 100
     
     生成100个字符
+
+16进制显示
+
+    ./fmt_write.c | xxd 
+
 
 locate my.cnf
 
@@ -585,6 +597,8 @@ x/3uh 0x54320 //内存地址0x54320读取内容 3u 3w个字节
 
 x/3us 0x601080 //读取地址字符串
 
+已进入函数了 -8对齐
+x/64gx $rsp-8
 p 输出
 
     p __free_hook // 打印 freehook地址信息

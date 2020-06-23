@@ -68,7 +68,10 @@
 [探寻逻辑漏洞挖掘的通用思路](https://www.bilibili.com/video/BV1rz411v7JA)
 
 [RFIDHacKing频射硬件入门](https://www.bilibili.com/video/BV1Ki4y147cA)
+
 [PHP框架中的反序列化Gadget挖掘](https://www.bilibili.com/video/BV1L54y1R7La)
+
+[CTF-web--命令注入](https://mp.weixin.qq.com/s/F5rD5vOmVVO7J-RnVkbLIw)
 
 ## Web-sql
 [sql注入绕过方法总结](https://mp.weixin.qq.com/s/G_duPVXpTJWKZDZeQ0Dh0g)
