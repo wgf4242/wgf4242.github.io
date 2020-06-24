@@ -72,6 +72,9 @@
 [PHP框架中的反序列化Gadget挖掘](https://www.bilibili.com/video/BV1L54y1R7La)
 
 [CTF-web--命令注入](https://mp.weixin.qq.com/s/F5rD5vOmVVO7J-RnVkbLIw)
+## web rce
+
+[代码审计-Thinkphp5.x系列RCE总结](https://mp.weixin.qq.com/s/DZM_Q_EgUFFfLlITRuZ0Aw)
 
 ## Web-sql
 [sql注入绕过方法总结](https://mp.weixin.qq.com/s/G_duPVXpTJWKZDZeQ0Dh0g)
